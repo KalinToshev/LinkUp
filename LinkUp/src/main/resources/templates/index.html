@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/commons::head"></head>
-<body>
-
+<body class="d-flex flex-column justify-content-evenly align-items-center" id="index-page">
+    <h1 class="text-center text-uppercase lh-lg display-1 animate__bounce">Welcome<br>To</h1>
+    <img src="/img/logo.png" alt="logo" class="img-fluid">
+    <div id="register-button" class="d-flex justify-content-center align-items-center">
+        <a href="#" class="text-uppercase fs-1 text-decoration-none text-white">Register</a>
+    </div>
+    <div id="register-button" class="d-flex justify-content-center align-items-center">
+        <a href="#" class="text-uppercase fs-1 text-decoration-none text-white">Login</a>
+    </div>
 </body>
 </html>
