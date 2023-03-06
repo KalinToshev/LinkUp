@@ -6,7 +6,7 @@
     background-color: rgba(221, 224, 226, 0.432);
 }
 
-#index-page #register-button {
+#index-page #action-button {
     background: linear-gradient(99.94deg, #36CEC5 0%, rgba(15, 126, 227, 0.66) 100%);
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
@@ -19,4 +19,20 @@
     background: linear-gradient(180deg, #36CEC5 0%, rgba(2, 17, 16, 0) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+.h-custom {
+    height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
 }

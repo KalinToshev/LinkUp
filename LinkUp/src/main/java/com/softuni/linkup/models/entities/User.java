@@ -3,6 +3,8 @@ package com.softuni.linkup.models.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -29,6 +31,28 @@ public class User extends BaseEntity {
     @OneToOne(cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
     @JoinColumn(name = "gender_id", nullable = false)
     private Gender gender;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<User> friends = new LinkedHashSet<>();
+
+    @OneToMany(orphanRemoval = true)
+    private Set<Role> roles = new LinkedHashSet<>();
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public Set<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Set<User> friends) {
+        this.friends = friends;
+    }
 
     public Gender getGender() {
         return gender;
