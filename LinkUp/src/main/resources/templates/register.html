@@ -14,22 +14,27 @@
                         <p class="text-center fw-bold mx-3 mb-0">Register</p>
                     </div>
                     <div class="form-outline mb-4">
-                        <input class="form-control form-control-lg" placeholder="Enter a First Name" type="text"/>
+                        <label for="first-name" class="mb-1 fs-4">Enter a first name:</label>
+                        <input class="form-control form-control-lg" placeholder="John" type="text" id="first-name"/>
                     </div>
                     <div class="form-outline mb-4">
-                        <input class="form-control form-control-lg" placeholder="Enter a Last Name" type="text"/>
+                        <label for="last-name" class="mb-1 fs-4">Enter a last name:</label>
+                        <input class="form-control form-control-lg" placeholder="Doe" type="text" id="last-name"/>
                     </div>
                     <div class="form-outline mb-4">
-                        <input class="form-control form-control-lg" placeholder="Enter a Username" type="text"/>
+                        <label for="user-name" class="mb-1 fs-4">Enter a username:</label>
+                        <input class="form-control form-control-lg" placeholder="JohnDoe222" type="text" id="user-name"/>
                     </div>
                     <div class="form-outline mb-4">
-                        <input class="form-control form-control-lg" placeholder="Enter a valid email address" type="email"/>
+                        <label for="e-mail" class="mb-1 fs-4">Enter a email address:</label>
+                        <input class="form-control form-control-lg" placeholder="John.Doe@gmail.com" type="email" id="e-mail"/>
                     </div>
                     <div class="form-outline mb-3">
-                        <input class="form-control form-control-lg" placeholder="Enter password" type="password"/>
+                        <label for="pass-word" class="mb-1 fs-4">Enter a password:</label>
+                        <input class="form-control form-control-lg" placeholder="JohnDoe222" type="password" id="pass-word"/>
                     </div>
                     <div class="text-center text-lg-start mt-4 pt-2">
-                        <button class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" type="button">Register</button>
+                        <button class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem; background: linear-gradient(99.94deg, #36CEC5 0%, rgba(15, 126, 227, 0.66) 100%); border:none;" type="button">Register</button>
                         <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a class="link-danger" th:href="@{/users/login}">Login</a></p>
                     </div>
                 </form>
