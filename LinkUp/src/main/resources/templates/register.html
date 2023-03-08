@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/fragments/commons::head"></head>
 <body>
-    <section class="vh-100" id="reg-login-page">
+    <section id="reg-login-page" class="d-flex justify-content-center align-items-center">
         <div class="container-fluid h-custom">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-md-9 col-lg-6 col-xl-5">
@@ -20,6 +20,10 @@
                         <div class="form-outline mb-4">
                             <label for="last-name" class="mb-3 fs-5 ms-2">Enter a last name:</label>
                             <input class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4" placeholder="Doe" type="text" id="last-name"/>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label for="dateOfBirth" class="mb-3 fs-5 ms-2">Select your date of birth:</label>
+                            <input class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4" id="dateOfBirth" type="date">
                         </div>
                         <div class="form-outline mb-4">
                             <label for="user-name" class="mb-3 fs-5 ms-2">Enter a username:</label>
