@@ -28,9 +28,11 @@
     height: 1px;
     background: #eee;
 }
+
 .h-custom {
     height: calc(100% - 73px);
 }
+
 @media (max-width: 450px) {
     .h-custom {
         height: 100%;
@@ -42,7 +44,6 @@
     min-height: 100vh;
 }
 
-#reg-login-page input, select {
+#reg-login-page input {
     border: 2px solid #36CEC5;
-    background: white;
 }

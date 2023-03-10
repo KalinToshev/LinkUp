@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/fragments/commons::head"></head>
 <body>
-    <section id="reg-login-page" class="d-flex justify-content-center align-items-center">
+    <section id="reg-login-page" class="d-flex justify-content-center align-items-center pb-3">
         <div class="container-fluid h-custom">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-md-9 col-lg-6 col-xl-5">
@@ -12,6 +12,12 @@
                     <form>
                         <div class="divider d-flex align-items-center my-4">
                             <p class="text-center fw-bold mx-3 mb-0 text-uppercase">Log In</p>
+                        </div>
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill pe-3"></i>
+                            <div>
+                                Incorrect email address or password! Try again!
+                            </div>
                         </div>
                         <div class="form-outline mb-4">
                             <label for="e-mail" class="mb-3 fs-5 ms-2">Enter a email address:</label>
