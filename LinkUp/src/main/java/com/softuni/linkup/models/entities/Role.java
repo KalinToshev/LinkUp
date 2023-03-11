@@ -17,7 +17,8 @@ public class Role extends BaseEntity {
         return role;
     }
 
-    public void setRole(Roles role) {
+    public Role setRole(Roles role) {
         this.role = role;
+        return this;
     }
 }

@@ -2,6 +2,9 @@ package com.softuni.linkup.models.entities;
 
 import com.softuni.linkup.models.enums.Genders;
 import jakarta.persistence.*;
+import org.hibernate.Hibernate;
+
+import java.util.Objects;
 
 @Entity
 @Table(name = "genders")

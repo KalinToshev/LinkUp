@@ -3,7 +3,6 @@ package com.softuni.linkup.models.entities;
 import jakarta.persistence.*;
 
 @MappedSuperclass
-@Access(AccessType.FIELD)
 public abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,5 +14,10 @@ public abstract class BaseEntity {
 
     public Long getId() {
         return id;
+    }
+
+    public BaseEntity setId(Long id) {
+        this.id = id;
+        return this;
     }
 }

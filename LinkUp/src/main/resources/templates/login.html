@@ -1,46 +1,97 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/fragments/commons::head"></head>
-<body>
-    <section id="reg-login-page" class="d-flex justify-content-center align-items-center pb-3">
-        <div class="container-fluid h-custom">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-9 col-lg-6 col-xl-5">
-                    <img alt="Sample image" class="img-fluid" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp">
+  <head th:replace="/fragments/commons::head"></head>
+  <body>
+    <section
+      id="reg-login-page"
+      class="d-flex justify-content-center align-items-center pb-3"
+    >
+      <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-9 col-lg-6 col-xl-5">
+            <img
+              alt="Sample image"
+              class="img-fluid"
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            />
+          </div>
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <form>
+              <div class="divider d-flex align-items-center my-4">
+                <p class="text-center fw-bold mx-3 mb-0 text-uppercase">
+                  Log In
+                </p>
+              </div>
+              <div
+                class="alert alert-danger d-flex align-items-center"
+                role="alert"
+              >
+                <i class="bi bi-exclamation-triangle-fill pe-3"></i>
+                <div>Incorrect email address or password! Try again!</div>
+              </div>
+              <div class="form-outline mb-4">
+                <label for="e-mail" class="mb-3 fs-5 ms-2"
+                  >Enter a email address:</label
+                >
+                <input
+                  class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4"
+                  placeholder="John.Doe@gmail.com"
+                  type="email"
+                  id="e-mail"
+                />
+              </div>
+              <div class="form-outline mb-3">
+                <label for="pass-word" class="mb-3 fs-5 ms-2"
+                  >Enter a password:</label
+                >
+                <input
+                  class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4"
+                  placeholder="JohnDoe222"
+                  type="password"
+                  id="pass-word"
+                />
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="form-check mb-0 ms-2">
+                  <input
+                    class="form-check-input me-2"
+                    id="remember-me"
+                    type="checkbox"
+                    value=""
+                  />
+                  <label class="form-check-label" for="remember-me"
+                    >Remember me</label
+                  >
                 </div>
-                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form>
-                        <div class="divider d-flex align-items-center my-4">
-                            <p class="text-center fw-bold mx-3 mb-0 text-uppercase">Log In</p>
-                        </div>
-                        <div class="alert alert-danger d-flex align-items-center" role="alert">
-                            <i class="bi bi-exclamation-triangle-fill pe-3"></i>
-                            <div>
-                                Incorrect email address or password! Try again!
-                            </div>
-                        </div>
-                        <div class="form-outline mb-4">
-                            <label for="e-mail" class="mb-3 fs-5 ms-2">Enter a email address:</label>
-                            <input class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4" placeholder="John.Doe@gmail.com" type="email" id="e-mail"/>
-                        </div>
-                        <div class="form-outline mb-3">
-                            <label for="pass-word" class="mb-3 fs-5 ms-2">Enter a password:</label>
-                            <input class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4" placeholder="JohnDoe222" type="password" id="pass-word"/>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="form-check mb-0 ms-2">
-                                <input class="form-check-input me-2" id="remember-me" type="checkbox" value=""/>
-                                <label class="form-check-label" for="remember-me">Remember me</label>
-                            </div>
-                        </div>
-                        <div class="text-center text-lg-start mt-4 pt-2">
-                            <button class="btn btn-primary btn-lg shadow-sm rounded-pill" style="padding-left: 2.5rem; padding-right: 2.5rem; background: linear-gradient(99.94deg, #36CEC5 0%, rgba(15, 126, 227, 0.66) 100%); border:none;" type="button">Login</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a class="link-danger" th:href="@{/users/register}">Register</a></p>
-                        </div>
-                    </form>
-                </div>
-            </div>
+              </div>
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <button
+                  class="btn btn-primary btn-lg shadow-sm rounded-pill"
+                  style="
+                    padding-left: 2.5rem;
+                    padding-right: 2.5rem;
+                    background: linear-gradient(
+                      99.94deg,
+                      #36cec5 0%,
+                      rgba(15, 126, 227, 0.66) 100%
+                    );
+                    border: none;
+                  "
+                  type="button"
+                >
+                  Login
+                </button>
+                <p class="small fw-bold mt-2 pt-1 mb-0">
+                  Don't have an account?
+                  <a class="link-danger" th:href="@{/users/register}"
+                    >Register</a
+                  >
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
-</body>
+  </body>
 </html>

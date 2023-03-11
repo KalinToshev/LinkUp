@@ -29,15 +29,11 @@ public class User extends BaseEntity {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL, optional = false, orphanRemoval = true)
-    @JoinColumn(name = "gender_id", nullable = false)
-    private Gender gender;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
     private Set<User> friends = new LinkedHashSet<>();
 
-    @OneToMany(orphanRemoval = true)
-    private Set<Role> roles = new LinkedHashSet<>();
+    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
+    private Set<Role> roles;
 
     public User() {
         this.roles = new HashSet<>();
@@ -57,10 +53,6 @@ public class User extends BaseEntity {
 
     public void setFriends(Set<User> friends) {
         this.friends = friends;
-    }
-
-    public Gender getGender() {
-        return gender;
     }
 
     public String getPassword() {
@@ -114,11 +106,6 @@ public class User extends BaseEntity {
 
     public User setPassword(String password) {
         this.password = password;
-        return this;
-    }
-
-    public User setGender(Gender gender) {
-        this.gender = gender;
         return this;
     }
 
