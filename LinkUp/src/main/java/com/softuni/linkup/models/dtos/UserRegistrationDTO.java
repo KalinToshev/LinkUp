@@ -43,7 +43,7 @@ public class UserRegistrationDTO {
     @NotBlank(message = "Please confirm the password.")
     private String confirmPassword;
 
-    @NotBlank(message = "Gender cannot be empty.")
+    @NotNull(message = "Gender cannot be empty.")
     private Gender gender;
 
     public UserRegistrationDTO() {

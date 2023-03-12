@@ -1,11 +1,12 @@
 package com.softuni.linkup.services.user;
 
 import com.softuni.linkup.models.dtos.UserRegistrationDTO;
+import com.softuni.linkup.models.entities.User;
 
 public interface UserService {
-    boolean findUserByUsername(String username);
+    User findUserByUsername(String username);
 
-    boolean findUserByEmail(String email);
+    User findUserByEmail(String email);
 
     void register(UserRegistrationDTO userRegistrationDTO);
 }

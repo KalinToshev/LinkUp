@@ -2,6 +2,7 @@ package com.softuni.linkup.controllers;
 
 import com.softuni.linkup.models.dtos.UserRegistrationDTO;
 import com.softuni.linkup.services.user.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -26,7 +27,7 @@ public class RegisterController {
     }
 
     @PostMapping("/users/register")
-    public String registerUser(UserRegistrationDTO userRegistrationDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String registerUser(@Valid UserRegistrationDTO userRegistrationDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (!userRegistrationDTO.getPassword().equals(userRegistrationDTO.getConfirmPassword())) {
             bindingResult.addError(
                     new FieldError(

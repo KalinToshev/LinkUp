@@ -28,10 +28,10 @@
                 </label>
                 <input
                   class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4"
-                  placeholder="John"
                   type="text"
                   id="firstName"
                   th:field="*{firstName}"
+                  th:errorclass="is-invalid"
                   required
                 />
                 <div class="invalid-feedback text-center" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error message</div>
@@ -42,10 +42,10 @@
                 </label>
                 <input
                   class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4"
-                  placeholder="Doe"
                   type="text"
                   id="lastName"
                   th:field="*{lastName}"
+                  th:errorclass="is-invalid"
                   required
                 />
                 <div class="invalid-feedback text-center" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error message</div>
@@ -59,6 +59,7 @@
                   id="dateOfBirth"
                   type="date"
                   th:field="*{dateOfBirth}"
+                  th:errorclass="is-invalid"
                   placeholder="mm/dd/yyyy"
                   required
                 />
@@ -96,10 +97,10 @@
                 </label>
                 <input
                   class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4"
-                  placeholder="JohnDoe222"
                   type="text"
                   id="username"
                   th:field="*{username}"
+                  th:errorclass="is-invalid"
                   required
                 />
                 <div class="invalid-feedback text-center" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error message</div>
@@ -110,10 +111,10 @@
                 </label>
                 <input
                   class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4"
-                  placeholder="John.Doe@gmail.com"
                   type="email"
                   id="email"
                   th:field="*{email}"
+                  th:errorclass="is-invalid"
                   required
                 />
                 <div class="invalid-feedback text-center" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error message</div>
@@ -124,10 +125,10 @@
                 </label>
                 <input
                   class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4"
-                  placeholder="JohnDoe222"
                   type="password"
                   id="password"
                   th:field="*{password}"
+                  th:errorclass="is-invalid"
                   required
                 />
                 <div class="invalid-feedback text-center" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error message</div>
@@ -138,10 +139,10 @@
                 </label>
                 <input
                   class="form-control form-control-lg rounded-pill p-2 shadow-sm ps-4"
-                  placeholder="JohnDoe222"
                   type="password"
                   id="confirmPassword"
                   th:field="*{confirmPassword}"
+                  th:errorclass="is-invalid"
                   required
                 />
                 <div class="invalid-feedback text-center" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Error message</div>

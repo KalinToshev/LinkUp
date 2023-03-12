@@ -1,9 +1,7 @@
 package com.softuni.linkup.services.user;
 
 import com.softuni.linkup.models.dtos.UserRegistrationDTO;
-import com.softuni.linkup.models.entities.Role;
 import com.softuni.linkup.models.entities.User;
-import com.softuni.linkup.models.enums.Roles;
 import com.softuni.linkup.repositories.GenderRepository;
 import com.softuni.linkup.repositories.RoleRepository;
 import com.softuni.linkup.repositories.UserRepository;
@@ -30,17 +28,34 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean findUserByUsername(String username) {
-        return this.userRepository.findUserByUsername(username).isPresent();
+    public User findUserByUsername(String username) {
+        return this.userRepository.findUserByUsername(username);
     }
 
     @Override
-    public boolean findUserByEmail(String email) {
-        return this.userRepository.findUserByEmail(email).isPresent();
+    public User findUserByEmail(String email) {
+        return this.userRepository.findUserByEmail(email);
     }
 
     @Override
     public void register(UserRegistrationDTO userRegistrationDTO) {
-        //TODO: Implement logic for user registration and find a way to fix the gender issue
+        User user = new User();
+
+        user
+                .setFirstName(userRegistrationDTO.getFirstName())
+                .setLastName(userRegistrationDTO.getLastName())
+                .setEmail(userRegistrationDTO.getEmail())
+                .setUsername(userRegistrationDTO.getUsername())
+                .setPassword(passwordEncoder.encode(userRegistrationDTO.getPassword()))
+                .setDateOfBirth(userRegistrationDTO.getDateOfBirth())
+                .setGender(genderRepository.findAll().get(1));
+
+        if (userRepository.count() == 0) {
+            user.addRole(roleRepository.findAll().get(0));
+        }
+
+        user.addRole(roleRepository.findAll().get(1));
+
+        userRepository.save(user);
     }
 }

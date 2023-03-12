@@ -3,7 +3,6 @@ package com.softuni.linkup.models.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -32,19 +31,17 @@ public class User extends BaseEntity {
     @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
     private Set<User> friends = new LinkedHashSet<>();
 
-    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
-    private Set<Role> roles;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "gender_id")
+    private Gender gender;
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id"))
+    private Set<Role> roles = new LinkedHashSet<>();
 
     public User() {
-        this.roles = new HashSet<>();
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
     }
 
     public Set<User> getFriends() {
@@ -79,6 +76,14 @@ public class User extends BaseEntity {
         return firstName;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
     public User setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
@@ -109,7 +114,17 @@ public class User extends BaseEntity {
         return this;
     }
 
+    public User setGender(Gender gender) {
+        this.gender = gender;
+        return this;
+    }
+
     public void addRole(Role role) {
         this.roles.add(role);
+    }
+
+    public User setRoles(Set<Role> roles) {
+        this.roles = roles;
+        return this;
     }
 }
