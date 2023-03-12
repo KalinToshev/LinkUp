@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
                 .setUsername(userRegistrationDTO.getUsername())
                 .setPassword(passwordEncoder.encode(userRegistrationDTO.getPassword()))
                 .setDateOfBirth(userRegistrationDTO.getDateOfBirth())
-                .setGender(genderRepository.findAll().get(1));
+                .setGender(userRegistrationDTO.getGender());
 
         if (userRepository.count() == 0) {
             user.addRole(roleRepository.findAll().get(0));

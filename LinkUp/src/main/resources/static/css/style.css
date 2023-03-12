@@ -15,12 +15,6 @@
     margin: 5px 0;
 }
 
-/*#index-page h1 {*/
-/*    background: linear-gradient(99.94deg, #36CEC5 0%, rgba(15, 126, 227, 0.66) 100%);*/
-/*    -webkit-background-clip: text;*/
-/*    -webkit-text-fill-color: transparent;*/
-/*}*/
-
 .divider:after,
 .divider:before {
     content: "";
@@ -44,6 +38,6 @@
     min-height: 100vh;
 }
 
-#reg-login-page input {
+#reg-login-page input, #select-menu {
     border: 2px solid #36CEC5;
 }

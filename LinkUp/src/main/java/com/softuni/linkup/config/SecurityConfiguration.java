@@ -14,7 +14,16 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .requestMatchers("/", "/users/register", "/users/login").anonymous();
+                .requestMatchers("/", "/users/register", "/users/login").anonymous()
+                .requestMatchers("/home").authenticated()
+                .requestMatchers("/users/logout").hasRole("ROLE_USER")
+                .and()
+                .formLogin()
+                .loginPage("/users/login")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/home")
+                .failureForwardUrl("/users/login?error=true");
 
         return httpSecurity.build();
     }
