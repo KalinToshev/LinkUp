@@ -13,7 +13,7 @@ public class Role extends BaseEntity {
     @Column(name = "role", nullable = false, unique = true)
     private Roles role;
 
-    @ManyToMany(mappedBy = "roles", cascade = CascadeType.MERGE)
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "roles", cascade = CascadeType.MERGE)
     private Set<User> users = new LinkedHashSet<>();
 
     public Role() {

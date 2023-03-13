@@ -10,11 +10,25 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
     <script src="/js/bootstrap.min.js"></script>
   </head>
-  <body></body>
+  <body>
+    <nav class="container-fluid d-flex justify-content-center align-items-center">
+      <ul class="d-flex p-0 m-0">
+        <li class="d-flex flex-column justify-content-center align-items-center ps-3 pe-3">
+          <i class="fa-solid fa-house pb-1 text-white"></i>
+          <a th:href="@{/home}" class="text-uppercase text-decoration-none text-white">Home</a>
+        </li>
+        <li class="d-flex flex-column justify-content-center align-items-center ps-3 pe-3">
+          <i class="fa-solid fa-user pb-1 text-white"></i>
+          <a th:href="@{/profile}" class="text-uppercase text-decoration-none text-white">Profile</a>
+        </li>
+        <li class="d-flex flex-column justify-content-center align-items-center ps-3 pe-3">
+          <i class="fa-solid fa-right-from-bracket pb-1 text-white"></i>
+          <a th:href="@{/users/logout}" class="text-uppercase text-decoration-none text-white">Logout</a>
+        </li>
+      </ul>
+    </nav>
+  </body>
 </html>

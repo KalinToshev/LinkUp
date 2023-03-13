@@ -15,15 +15,21 @@ public class SecurityConfiguration {
         httpSecurity.authorizeHttpRequests()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .requestMatchers("/", "/users/register", "/users/login").anonymous()
-                .requestMatchers("/home").authenticated()
-                .requestMatchers("/users/logout").hasRole("ROLE_USER")
+                .requestMatchers("/home", "/profile").authenticated()
+                .requestMatchers("/users/logout").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/users/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .defaultSuccessUrl("/home")
-                .failureForwardUrl("/users/login?error=true");
+                .failureForwardUrl("/users/login?error=true")
+                .and()
+                .logout()
+                .logoutUrl("/users/logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/");
 
         return httpSecurity.build();
     }

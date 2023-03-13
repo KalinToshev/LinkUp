@@ -23,7 +23,7 @@ public class RegisterController {
 
     @GetMapping("/users/register")
     public String getRegisterPage() {
-        return "register.html";
+        return "register";
     }
 
     @PostMapping("/users/register")

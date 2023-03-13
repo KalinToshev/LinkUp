@@ -2,9 +2,9 @@ package com.softuni.linkup.services.user;
 
 import com.softuni.linkup.models.dtos.UserRegistrationDTO;
 import com.softuni.linkup.models.entities.User;
-import com.softuni.linkup.repositories.GenderRepository;
 import com.softuni.linkup.repositories.RoleRepository;
 import com.softuni.linkup.repositories.UserRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,16 +15,16 @@ public class UserServiceImpl implements UserService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private final GenderRepository genderRepository;
-
     private final RoleRepository roleRepository;
 
+    private final ModelMapper modelMapper;
+
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, GenderRepository genderRepository, RoleRepository roleRepository) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, RoleRepository roleRepository, ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.genderRepository = genderRepository;
         this.roleRepository = roleRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -41,14 +41,9 @@ public class UserServiceImpl implements UserService {
     public void register(UserRegistrationDTO userRegistrationDTO) {
         User user = new User();
 
-        user
-                .setFirstName(userRegistrationDTO.getFirstName())
-                .setLastName(userRegistrationDTO.getLastName())
-                .setEmail(userRegistrationDTO.getEmail())
-                .setUsername(userRegistrationDTO.getUsername())
-                .setPassword(passwordEncoder.encode(userRegistrationDTO.getPassword()))
-                .setDateOfBirth(userRegistrationDTO.getDateOfBirth())
-                .setGender(userRegistrationDTO.getGender());
+        modelMapper.map(userRegistrationDTO, user);
+
+        user.setPassword(passwordEncoder.encode(userRegistrationDTO.getPassword()));
 
         if (userRepository.count() == 0) {
             user.addRole(roleRepository.findAll().get(0));
